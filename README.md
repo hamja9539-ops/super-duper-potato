@@ -1,84 +1,147 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amir Hamza Premium Casino - Ultra Ads</title>
-    
-    <!-- FontAwesome & Google Fonts -->
+    <title>Kadam Network | Global Ad Network</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
-    
-    <!-- Adsterra Social Bar & Popunder -->
-    <script src="https://pl28710343.effectivegatecpm.com/e1/71/5d/e1715d3cbc848ab99e8b5ceff41d01b8.js"></script>
-
     <style>
-        :root { --gold: #ffd700; --dark: #0b0d17; --card: #161b22; --p: #0ea5e9; --s: #ec4899; --wa: #25D366; --tg: #0088cc; --yt: #FF0000; --fb: #1877F2; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--dark); color: white; overflow-x: hidden; cursor: pointer; }
-
-        /* 1. Auto Refresh Timer Bar */
-        .refresh-timer { position: fixed; top: 0; left: 0; height: 5px; background: linear-gradient(to right, var(--gold), var(--s)); width: 100%; z-index: 2000; animation: timer-progress 15s linear infinite; }
-        @keyframes timer-progress { from { width: 100%; } to { width: 0%; } }
-
-        header { background: rgba(0,0,0,0.9); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); position: sticky; top: 5px; z-index: 100; backdrop-filter: blur(10px); }
-        .logo { font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 900; color: var(--gold); text-shadow: 0 0 10px var(--gold); }
-        .balance-chip { background: var(--gold); color: black; padding: 5px 15px; border-radius: 5px; font-weight: 900; font-size: 18px; box-shadow: 0 0 15px var(--gold); }
-
-        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; display: grid; grid-template-columns: 1fr; gap: 20px; }
-        @media (min-width: 1024px) { .container { grid-template-columns: 300px 1fr 300px; } }
-
-        .card { background: var(--card); border: 1px solid #30363d; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-
-        /* 2. Tabs System */
-        .tabs { display: flex; justify-content: space-around; background: #000; padding: 10px; border-radius: 50px; margin-bottom: 20px; border: 1px solid var(--gold); }
-        .tab-item { cursor: pointer; opacity: 0.6; padding: 8px 15px; font-weight: bold; font-size: 14px; transition: 0.3s; }
-        .tab-active { opacity: 1; color: var(--gold); border-bottom: 2px solid var(--gold); }
-
-        /* 3. Slot Machine UI (3 Task System) */
-        .slot-machine { background: #000; padding: 20px; border: 4px solid var(--gold); border-radius: 15px; margin: 20px 0; position: relative; }
-        .slots { display: flex; justify-content: center; gap: 10px; font-size: 50px; margin: 20px 0; background: #111; padding: 15px; border-radius: 10px; }
-        .slot { width: 75px; height: 100px; background: white; color: black; display: flex; align-items: center; justify-content: center; border-radius: 8px; border-bottom: 5px solid #bbb; font-family: 'Oswald', sans-serif; }
-        
-        .task-steps { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
-        .step-dot { width: 12px; height: 12px; border-radius: 50%; background: #334155; border: 1px solid var(--gold); }
-        .step-dot.active { background: var(--gold); box-shadow: 0 0 10px var(--gold); }
-
-        .spin-btn { background: linear-gradient(180deg, #ff4d4d, #b30000); color: white; border: none; width: 100%; padding: 20px; border-radius: 12px; font-size: 24px; font-weight: 900; cursor: pointer; text-transform: uppercase; box-shadow: 0 6px #660000; transition: 0.2s; }
-        .spin-btn:active { transform: translateY(4px); box-shadow: 0 2px #660000; }
-        .spin-btn:disabled { background: #555; box-shadow: none; cursor: not-allowed; }
-
-        /* 4. Fake Notification */
-        #notify { position: fixed; bottom: 20px; left: 20px; background: white; color: black; padding: 12px 20px; border-radius: 10px; font-size: 13px; transform: translateY(200%); transition: 0.5s; z-index: 1000; box-shadow: 0 10px 40px rgba(0,0,0,0.8); border-left: 5px solid var(--gold); }
-
-        /* 5. Floating Social Menu */
-        .float-menu { position: fixed; bottom: 30px; right: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
-        .float-icon { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: 0.3s; animation: float-pulse 2s infinite; }
-        @keyframes float-pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-
-        /* Support Links */
-        .support-link { display: flex; align-items: center; gap: 15px; background: #000; padding: 15px; border-radius: 12px; margin-top: 15px; text-decoration: none; color: white; font-weight: bold; border: 1px solid #334155; }
-
-        .ad-status { font-size: 11px; color: #22c55e; margin-top: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
     </style>
 </head>
-<body onclick="handleGlobalPop()">
+<body class="bg-gray-50">
 
-<!-- 15s Auto Refresh Timer -->
-<div class="refresh-timer"></div>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Kadam <span class="text-gray-800">Network</span></a>
+            <div class="hidden md:flex space-x-8 text-gray-600 font-medium">
+                <a href="#home" class="hover:text-blue-600 transition">হোম</a>
+                <a href="#services" class="hover:text-blue-600 transition">সার্ভিস</a>
+                <a href="#advertisers" class="hover:text-blue-600 transition">অ্যাডভার্টাইজার</a>
+                <a href="#publishers" class="hover:text-blue-600 transition">পাবলিশার</a>
+                <a href="#contact" class="hover:text-blue-600 transition">যোগাযোগ</a>
+            </div>
+            <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-full font-bold hover:bg-blue-700 transition">লগইন</a>
+        </div>
+    </nav>
 
-<!-- Fake Notification -->
-<div id="notify">User <b>Amir Hamza</b> just withdrew $10.00</div>
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-20 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">আপনার ব্যবসার সঠিক ট্রাফিক নিশ্চিত করুন</h1>
+                <p class="text-lg mb-8 text-blue-100">কদম নেটওয়ার্কের মাধ্যমে সারাবিশ্বের রিয়েল অডিয়েন্সের কাছে পৌঁছে যান। আমরা অফার করি প্রিমিয়াম অ্যাড ফরম্যাট এবং স্মার্ট টার্গেটিং।</p>
+                <div class="flex space-x-4">
+                    <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold shadow-lg">শুরু করুন</button>
+                    <button class="border border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition">আরও জানুন</button>
+                </div>
+            </div>
+            <div class="md:w-1/2">
+                <img src="https://via.placeholder.com/600x400/ffffff/3b82f6?text=Ad+Network+Interface" alt="Analytics" class="rounded-xl shadow-2xl">
+            </div>
+        </div>
+    </section>
 
-<header>
-    <div class="logo">HAMZA CASINO</div>
-    <div class="balance-chip">$ <span id="balance">0.00</span></div>
-</header>
+    <!-- Stats -->
+    <section class="py-12 bg-white border-b">
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <h3 class="text-3xl font-bold text-blue-600">৪০B+</h3>
+                <p class="text-gray-500">প্রতিদিন ইমপ্রেশন</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-blue-600">১৯৫+</h3>
+                <p class="text-gray-500">দেশ কাভারেজ</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-blue-600">৮০K+</h3>
+                <p class="text-gray-500">অ্যাডভার্টাইজার</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-blue-600">২৪/৭</h3>
+                <p class="text-gray-500">সাপোর্ট</p>
+            </div>
+        </div>
+    </section>
 
-<div class="container">
-    <!-- Sidebar Left: Ads & Info -->
-    <div class="card">
-        <p style="color: var(--gold); font-size: 12px; margin-bottom: 15px;">VIP SPONSOR ADS</p>
-        <center>
-            <script>atOptions = {'key' : '25dea51816ccf1440371367ae3710e86','format' : 'iframe','height' : 250,'width' : 300,'params' : {}};</script>
+    <!-- Services / Formats -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16 text-gray-800">আমাদের অ্যাড ফরম্যাটসমূহ</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-bell text-4xl text-blue-600 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">পুশ নোটিফিকেশন</h4>
+                    <p class="text-gray-600 text-sm">সরাসরি ইউজারের ডিভাইসে মেসেজ পাঠিয়ে কনভার্সন বৃদ্ধি করুন।</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-image text-4xl text-blue-600 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">নেটিভ অ্যাডস</h4>
+                    <p class="text-gray-600 text-sm">ওয়েবসাইটের কন্টেন্টের সাথে সামঞ্জস্য রেখে ন্যাচারাল বিজ্ঞাপন।</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition">
+                    <i class="fas fa-mouse-pointer text-4xl text-blue-600 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">পপআন্ডার (Popunder)</h4>
+                    <p class="text-gray-600 text-sm">হাই-ভলিউম ট্রাফিক পাওয়ার সবচেয়ে জনপ্রিয় এবং কার্যকরী মাধ্যম।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-blue-600 rounded-2xl p-12 text-white text-center">
+                <h2 class="text-3xl font-bold mb-6">আজই কদম নেটওয়ার্কে যোগ দিন</h2>
+                <p class="mb-10 text-blue-100">আপনার ইনকাম অথবা সেলস বাড়ানোর এখনই সময়। আমাদের সাপোর্ট টিম আপনাকে সাহায্য করতে প্রস্তুত।</p>
+                <form class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center">
+                    <input type="email" placeholder="আপনার ইমেইল দিন" class="px-6 py-3 rounded-lg text-gray-800 focus:outline-none w-full md:w-80">
+                    <button class="bg-yellow-400 text-blue-900 px-8 py-3 rounded-lg font-bold hover:bg-yellow-300 transition">রেজিস্ট্রেশন করুন</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6">
+        <div class="container mx-auto grid md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <a href="#" class="text-2xl font-bold text-white mb-6 block">Kadam Network</a>
+                <p class="text-sm">একটি গ্লোবাল ডিজিটাল অ্যাডভার্টাইজিং প্ল্যাটফর্ম যা পাবলিশার এবং অ্যাডভার্টাইজারদের মেলবন্ধন ঘটায়।</p>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4">লিঙ্কস</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">অ্যাডভার্টাইজার</a></li>
+                    <li><a href="#" class="hover:text-white">পাবলিশার</a></li>
+                    <li><a href="#" class="hover:text-white">অ্যাফিলিয়েট</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4">কোম্পানি</h5>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white">আমাদের সম্পর্কে</a></li>
+                    <li><a href="#" class="hover:text-white">ব্লগ</a></li>
+                    <li><a href="#" class="hover:text-white">প্রাইভেসি পলিসি</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-white font-bold mb-4">যোগাযোগ</h5>
+                <p class="text-sm">ইমেইল: support@kadam.net</p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-xl hover:text-white"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-xl hover:text-white"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" class="text-xl hover:text-white"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-sm">
+            &copy; 2025 Kadam Network. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
